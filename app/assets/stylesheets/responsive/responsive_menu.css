@@ -1,0 +1,79 @@
+#navHolder, #myTopnav{
+    display: none;
+}
+#resMenu{
+    padding:0px;
+}
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+    display: flex;
+    display : -webkit-flex;
+    display: -ms-flex;
+	flex-direction: column;
+}
+
+/*navigation section */
+#topNav {
+    padding-bottom: 15px;
+}
+#topNavSec{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#myTopnav > li {
+	list-style: none;
+	color: white;
+}
+/*css for ruling*/
+.navrul{
+    margin-top:0.7em;
+    margin-bottom: 0.7em;
+}
+
+/* responsive menu icon */
+#resMenu{
+	font-size: 25pt;
+}
+
+/* mobile dropdown menu */
+#navHolder {
+	position: absolute;
+	top: 90px;
+	right: 0px;
+	border-top: 1px solid white;
+	width: 100%;
+	padding: 6px;
+	z-index: 1000;
+	background: rgba(0,0,0,0.9);
+}
+/* Style the links inside the list items */
+ul.topnav li {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 17px 0px;
+    text-decoration: none;
+    transition: 0.3s;
+	font-size: 17px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:680px) {
+    #myTopnav{
+        display: block;
+    }
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks
+   on the icon. This class makes the topnav look good on small screens */
+  @media screen and (max-width:680px) {
+	.responsive{
+	  display: block !important;
+	}
+  }

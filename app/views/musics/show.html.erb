@@ -1,0 +1,30 @@
+<div class="section no-pad no-gutters row">
+    <div class="col-12">
+        <span class="type rm_position">[ MUSIC ]</span>
+        <span class="tag"><%= @music.title %></span>
+    </div>
+    <hr/>
+    <div class="col-12 disc-music">
+        <img class="disc-music-poster" src=<%= @music.poster_path %> alt=<%= @music.title%>>
+    </div>
+    <div class="col-12 music-detail">
+        <p><%= @music.description%></p>
+        <span class="release lf-algn">released : <%= @music.released %></span><br/>
+        <span class="producer lf-algn">produced : <%= @music.producer %></span>
+    </div>
+    <hr/>
+    <div class="col-12 music-detail">
+        <p class="specify">Listen and download <b><em><%= @music.title%></em></b> below</p>
+        <audio controls>
+            <source src="<%= @music.music_path %>" type="audio/mp3">
+            <p>Your browser doesn't support HTML5 audio. Here is
+                a <a href="@music.music_path">link to the audio</a> instead.
+            </p>
+        </audio>
+        <%= form_for :music, url: music_download_path do |f| %>
+            <%= f.hidden_field :music_id, value: @music.id %>
+            <%= f.submit :download, class:"download_btn "%>
+            <span class="sownload_count"><%= @music.download_count%></span>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<%= content_for :special_js do %>
+    <%= javascript_include_tag 'pagination' %>
+<% end %>
+
+<div class="title_holder">
+    <span class="title">VIDEOS</span>
+    <%= form_tag '/videos_index', name:'per_page', method: 'POST' do%>
+        <% if @per_page%>
+            <%= number_field_tag 'content', @per_page, in: 1..6 %>
+        <%else%>
+            <%= number_field_tag 'content', 4, in: 1..6 %>
+        <%end%>
+    <% end %>
+</div>
+<hr/>
+<% if @videos %>
+    <div class="pagination">
+        <button id="backward" class="pag-btn pagination-navs backward"><<</button> 
+
+        <%@tot_nav_links.times do |link|%>
+            <% if link<5 %>
+                <%=form_tag '/videos_index', name: 'page', method: 'POST' do%>
+                    <button value="<%=link + 1 %>" type='submit' class="<%=link+1 %> pag-btn pag-marg-left"><%=link+1%></button>
+                    <%= hidden_field_tag 'content', @per_page %>
+                    <%= hidden_field_tag 'page', link+1 %>
+                <%end%>
+            <%elsif link+1 == @tot_nav_links%>
+                <%=form_tag '/videos_index', name: 'page', method: 'POST' do%>
+                    <span class="pag-marg-left">...</span>
+                    <button value="<%=link + 1 %>" type='submit' class="<%=link+1 %> pag-btn pag-marg-left"><%=link+1%></button>
+                    <%= hidden_field_tag 'content', @per_page %>
+                    <%= hidden_field_tag 'page', link+1 %>
+                <%end%> 
+            <%end%>
+        <%end%>
+
+        <%=form_tag '/videos_index', name: 'pag_query_form', method: 'POST' do%>
+            <button id='forward' class="pag-btn pagination-navs pag-marg-left forward">>></button>
+            <%= hidden_field_tag 'content', @per_page %>
+            <%= hidden_field_tag 'page', @current_page, id: 'current_page' %>
+            <%= hidden_field_tag 'total', @tot_nav_links, id: 'tot_nav_links_f' %>
+        <%end%>
+    </div>
+
+    <hr/>
+
+    <% @contents.each do |video|%>
+        <a href= <%= "/videos/#{video.id}" %> >
+            <div class="no-pad no-gutters media_content">
+                <div class="col-6">
+                    <img class="poster" src=<%=video.poster_path%> alt="Mus14">
+                </div>
+                <div class="col-6 media_details column-display">
+                    <span class="tag"><%=video.title%></span><br>
+                </div>
+            </div>
+        </a>
+        <hr/>       
+    <% end %>
+
+    <div class="pagination">
+    
+        <button id="backward" class="pag-btn pagination-navs backward"><<</button>
+        
+        <%@tot_nav_links.times do |link|%>
+            <% if link<5 %>
+                <%=form_tag '/videos_index', name: 'page', method: 'POST' do%>
+                    <button value="<%=link + 1 %>" type='submit' class="<%=link+1 %> pag-btn pag-marg-left"><%=link+1%></button>
+                    <%= hidden_field_tag 'content', @per_page %>
+                    <%= hidden_field_tag 'page', link+1 %>
+                <%end%>
+            <%elsif link+1 == @tot_nav_links%>
+                <%=form_tag '/videos_index', name: 'page', method: 'POST' do%>
+                    <span class="pag-marg-left">...</span>
+                    <button value="<%=link + 1 %>" type='submit' class="<%=link+1 %> pag-btn pag-marg-left"><%=link+1%></button>
+                    <%= hidden_field_tag 'content', @per_page %>
+                    <%= hidden_field_tag 'page', link+1 %>
+                <%end%> 
+            <%end%>
+        <%end%>
+
+        <button id='forward' class="pag-btn pagination-navs pag-marg-left forward">>></button>
+    
+    </div>
+    
+<% end %>

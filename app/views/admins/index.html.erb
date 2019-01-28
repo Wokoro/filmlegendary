@@ -1,0 +1,133 @@
+<% content_for :header do %>
+  
+<% end %>
+
+<!-- MUSIC SECTION -->
+<h1>MUSIC</h1>
+<%= form_for :music, url: musics_path  do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :artist_name %><br>
+    <%= form.text_field :artist_name %>
+  </p>
+
+  <p>
+    <%= form.label :album_title %><br>
+    <%= form.text_field :album_title %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </p>
+
+  <p>
+    <%= form.label :genre %><br>
+    <%= select_tag "genres", options_for_select(["jazz","rock","blues","R & B", "Afro pop", "country", "Ragea", "trap", "shakuku", "highlife"], "jazz"), multiple: true, include_blank: true %>
+  </p>
+
+  <p>
+    <%= form.label :composer %><br>
+    <%= form.text_field :composer %>
+  </p>
+
+  <p>
+    <%= form.label :producer %><br>
+    <%= form.text_field :producer %>
+  </p>
+
+  <p>
+    <%= form.label :released %><br>
+    <%= form.date_field :released %>
+  </p>
+
+  <p>
+    <%= form.label :music_poster %><br>
+    <%= form.file_field :poster_file %>
+  </p>
+
+  <p>
+    <%= form.label :path %><br>
+    <%= form.file_field :music_file %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<!-- VIDEO SECTION -->
+<h1>VIDEO</h1>
+<%= form_for :video, url: videos_path  do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :producer %><br>
+    <%= form.text_field :producer %>
+  </p>
+
+  <p>
+    <%= form.label :released %><br>
+    <%= form.date_field :released %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </p>
+
+  <p>
+    <%= form.label :video_poster %><br>
+    <%= form.file_field :poster_file %>
+  </p>
+
+  <p>
+    <%= form.label :path %><br>
+    <%= form.file_field :video_file %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<!-- NEWS SECTION -->
+<h1>NEWS</h1>
+<%= form_for :news, url: '/news'  do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :released %><br>
+    <%= form.date_field :released %>
+  </p>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.label :news_image %><br>
+    <%= form.file_field :image_path %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<!-- Message -->
+
+<% if flash[:customed_message] %>
+      <%= content_tag :p, flash[:customed_message] %>
+<% end -%>

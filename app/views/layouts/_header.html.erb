@@ -1,0 +1,45 @@
+<header class="filmz-dark-bg">
+	<%= content_for :submit_icon_js do %>
+		<%= javascript_include_tag 'search' %>
+	<% end %>		
+	<!-- DIV FOR SOCIAL MEDIA ICONS -->
+	<div class="d-flex col-12 justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12 filmz-follow filmz-follow filmz-wt-col ">
+		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="facebook"><i class="fab fa-facebook-square"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="twitter"><i class="fab fa-twitter-square"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="whatsapp"><i class="fab fa-whatsapp-square"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="flickr"><i class="fab fa-flickr"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="google plus"><i class="fab fa-google-plus"></i></a>
+		<a id="signin" class="" href="">signin</a>
+	</div>
+
+	<!-- NAVIGATIONS -->
+	<nav id="topNav">
+		<div id="topNavSec">
+			<a href="/">
+				<img id="filmz-icon_small" class="" src="/assets/icon/filmz2.png" alt="Filmz">
+			</a>
+			<ul id="myTopnav">
+				<li id="resMenu" class="icon"><a href="javascript:void(0);">&#9776;</a></li>
+			</ul>
+		</div>
+		<div id="navHolder" class="topnav">
+			<ul class="topnav">
+				<li><a href="/">HOME</a></li><hr class="navrul"/>
+				<li><a href="/musics">MUSIC</a></li><hr class="navrul"/>
+				<li><a href="/videos">VIDEOS</a></li><hr class="navrul"/>
+				<li><a href="/news">NEWS</a></li>
+			<ul>
+		</div>
+	</nav>
+
+	<!-- DIV FOR SEARCH BOX -->
+	<div class=" filmz-search col-12 col-lg-3 col-xl-2 filmz-search">
+		<%= form_for :search, url: 'latest', html:{ id: 'search-form', method: 'GET'} do |form| %>
+			<%= form.text_field :query, id: 'search-field-sm', placeholder: "Start searching", class: "search-field" %>
+			<i class="search-btn fa fa-search" id="submit-icon" title="search"></i>
+		<%end%>
+	</div>
+	<section id="search-result">
+		<p>HELLO WORLD HOW ARE THINGS GOING</p>
+	<section>
+</header>

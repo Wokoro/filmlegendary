@@ -1,0 +1,81 @@
+// Place all the styles related to the Artists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#profile_header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -35px;
+    margin-bottom: 10px;
+}
+.header{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.name{
+	color: white;
+	font-weight: bold;
+	font-size: 1.0em;
+	font-family: sans;
+    line-height: 28px;
+    margin-top: 10px;
+}
+.number{
+	font-family: sans;
+	color: white;
+	font-size: 0.8em;
+	line-height: 15px;
+	margin-top: 5px;
+}
+.email {
+	font-family: san;
+	color: white;
+	font-size: 0.8em;
+	line-height: 16px;
+	margin-bottom: 20px;
+}
+.profile_pic {
+	width: 70px;
+	border-radius: 49px;
+	height: 70px;
+	padding: 3px;
+	border: 1px solid;
+}
+
+.message_section{
+    margin-bottom: 15px;
+}
+.sender_pic{
+    width: 12%;
+    height: 30px;
+    border-radius: 18px;
+}
+
+#message_holder {
+	margin-top: 12px;
+	color: white;
+	font-family: sans;
+}
+
+.sender_name{
+    font-size: 13px;
+    margin-left: 10px;
+}
+#music_list{
+    margin-top: 30px;
+    color:white;
+}
+
+.song_section{
+    margin-top: 5px;
+    font-size: .9em;
+    display:flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#artist_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.66rem;
+    color: white;
+}

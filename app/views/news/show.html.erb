@@ -1,0 +1,15 @@
+<div class="section no-pad no-gutters row">
+    <div class="col-12">
+    <span class="type rm_position">[ NEWS ]</span>
+        <span class="tag"><%= @news.title %></span>
+    </div>
+    <hr/>
+    <div class="col-12 disc-video">
+        <img src=<%= @news.image_path %> >
+    </div>
+    <div class="col-12 music-detail">
+        <p><%= @news.body %></p>
+        <hr/>
+        <span class="release lf-algn">released : <%= @news.released %></span>
+    </div>
+</div>

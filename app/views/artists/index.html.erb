@@ -1,0 +1,86 @@
+<% content_for :header do %>
+    <%= render('header')%>
+<% end %>
+
+<div>
+    <div id="profile_header">
+        <%= image_tag "artists_profiles/samuel/samuel.png", class: "profile_pic", id: "profile_img" %>
+        <span class="name">Wokoro Douye Samuel</span>
+        <span class ="number">+234 906 602 735 9</span>
+        <span class="email">wokorosamuel@yahoo.com</span>
+        <hr/>
+    </div>
+
+    <div id="message_holder">
+        <h6 class ="header">Messages</h6>
+        <hr/>
+        <div class ="message_section">
+            <%= image_tag "artists_profiles/samuel/samuel.png", class: "sender_pic" %>
+            <span class="sender_name">Clement Azibataram</span><br/>
+            <span>you that i would come ....</span>
+        </div>
+        <hr/>
+        <div  class = "message_section">
+            <%= image_tag "artists_profiles/samuel/samuel.png", class: "sender_pic" %>
+            <span class="sender_name">Tonicz</span><br/>
+            <span>i promised you that ....</span>
+        </div>
+        <hr/>
+        <div  class="message_section">
+            <%= image_tag "artists_profiles/samuel/samuel.png", class: "sender_pic" %>
+            <span class="sender_name">Benbizzy</span><br/>
+            <span>i promised you that i would come ....</span>
+        </div>
+        <hr/>
+    </div>
+
+    <div id="music_list">
+        <h6 class = "header">Musics</h6>
+        <hr/>
+        <div class="song_section">
+            <span class="numbering details">1.</span>
+            <span class="song_title details"> love you die</span>
+            <span class="rating details">*****</span>
+            <span class="download_count">23</span>
+        </div>
+        <div class="song_section">
+            <span class="numbering details">2.</span>
+            <span class="song_title details">killer sonner</span>
+            <span class="rating details">*****</span>
+            <span class="download_count">13</span>
+        </div>
+        <div class="song_section">
+            <span class="numbering details">3.</span>
+            <span class="song_title details">hover over me</span>
+            <span class="rating details">*****</span>
+            <span class="download_count">30</span>
+        </div>
+        <div class="song_section">
+            <span class="numbering details">4.</span>
+            <span class="song_title details">loving you</span>
+            <span class="rating details">*****</span>
+            <span class="download_count">30</span>
+        </div>
+        <div class="song_section">
+            <span class="numbering details">5.</span>
+            <span class="song_title details">killer jamz</span>
+            <span class="rating details">*****</span>
+            <span class="download_count">30</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let message_section = Array.from($(".message_section"))
+    let song_section = Array.from($(".song_section"))
+
+    message_section.map((element) =>{
+        $(element).on("mouseenter", (event)=>{
+        $(element).css("opacity", "0.5")
+            
+        })
+        $(element).on("mouseout", (event)=>{
+            $(element).css("opacity", "1") 
+        })
+    }) 
+</script>

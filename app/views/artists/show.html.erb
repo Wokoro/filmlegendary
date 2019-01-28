@@ -1,0 +1,90 @@
+<div class="section no-pad no-gutters row">
+    <div class="col-6 music-detail">
+        <span class="tag"><%= @video.title %></span>
+    </div>
+    <hr/>
+    <div class="col-10 disc-video">
+        <video class="vid-dis" src=<%= @video.video_path %> poster = <%= @video.poster_path %> ></video>
+        <div class="video-control"></div>
+    </div>
+    <div class="col-10 music-detail">
+        <p><%= @video.description%></p>
+        <hr/>
+        <span class="release lf-algn">released : <%= @video.released %></span>
+        <span class="producer lf-algn">produced :<%= @video.producer %></span>
+    </div>
+    
+    <div class="col-10 music-detail">
+        <hr/>
+        <span class="">listen</span>
+        <%= form_for :video, url: video_download_path do |f| %>
+            <%= f.hidden_field :video_id, value: @video.id %>
+            <%= f.submit :download, class:"download_btn "%>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    if(typeof appVideo=="undefined"){
+        let appVideo = {
+        video : {
+            videoElements :  Array.from($('video')),
+            videoControlDivs : Array.from($('.video-control'))
+        }
+    }
+
+    appVideo.customizeVidPanes= (elements, divs)=>{
+        if(elements.length){
+            elements.forEach((element, i)=>{
+                element.controls = false
+                element.playing = false
+                
+                //Event to listen for video control clicking to ( pause and play) video
+                addClkListenerToControlDivs('video', element, i)
+
+                //Add mouseover and mouseout events to video divs
+                addMosListenerToMediaElements('video', divs[i])
+            })
+            return
+        }
+    }
+
+    appVideo.customizeVidPanes(appVideo.video.videoElements, appVideo.video.videoControlDivs)
+
+
+    // HELPER FUNCTIONS
+
+    // function to add click event on the control divs
+    function addClkListenerToControlDivs(src, element, i){
+        //Event to listen for video control clicking to ( pause and play) video
+
+        $(appVideo.video.videoControlDivs[i]).click((event)=>{
+            if(element.playing){
+                element.pause();
+                element.playing = false
+                console.log("video:paused")
+                return
+            }
+            element.playing = true;
+            element.play()
+            console.log("video:playing")
+            
+        }) 
+    }
+
+    // function to add mouse over and mouse out event to media elements
+    function addMosListenerToMediaElements(src, element){
+     
+        $(element).on("mouseenter", (event)=>{
+            $(element).css("background", "rgba(0, 0, 0, 0.5)")
+            
+        })
+        $(element).on("mouseout", (event)=>{
+            $(element).css("background", "rgba(0, 0, 0, 0)")
+            
+        })
+        
+    }
+
+}
+</script>

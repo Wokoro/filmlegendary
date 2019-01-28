@@ -1,0 +1,27 @@
+<div class="section no-pad no-gutters row">
+    <div class="col-12">
+        <span class="type rm_position">[ VIDEO ]</span>
+        <span class="tag"><%= @video.title %></span>
+    </div>
+    <hr/>
+    <div class="col-12">
+    <video controls>
+        <source src="<%= @video.video_path %>" type="video/mp4">
+        <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="myVideo.mp4">link to the video</a> instead.</p>
+    </video>
+    </div>
+    <div class="col-12 music-detail">
+        <p><%= @video.description%></p>
+        <span class="release lf-algn">released : <%= @video.released %></span><br/>
+        <span class="producer lf-algn">produced : <%= @video.producer %></span>
+    </div>
+    <hr/>
+    <div class="col-12 music-detail">
+        <p class="specify">download <b><em><%= @video.title%></em></b> below</p>
+        <%= form_for :video, url: video_download_path do |f| %>
+            <%= f.hidden_field :video_id, value: @video.id %>
+            <%= f.submit :download, class:"download_btn "%>
+        <% end %>
+    </div>
+</div>
