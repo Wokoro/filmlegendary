@@ -2,7 +2,7 @@ class FilmsController < ApplicationController
 	#controller specific configuration
 
 	def index
-		@latests = Latest.order(created_at: :desc)
+		@latests = Latest.order(created_at: :desc).load
 
 		query_offset = ''
 		@per_page =  params[:content] ? params[:content].to_i : 4

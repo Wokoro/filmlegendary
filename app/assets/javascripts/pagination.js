@@ -31,12 +31,10 @@ $(document).on('turbolinks:load', ()=>{
             }
     
             let backward = function (event){
-                console.log("current page : ", current_page.value)
-                console.log("total navigation links : ", tot_nav_links)
                 event.preventDefault();
                 if(current_page.value > 1){
                     current_page.value = +current_page.value - 1;
-                    //pag_query_form.submit();
+                    pag_query_form.submit();
                 }
             }
             

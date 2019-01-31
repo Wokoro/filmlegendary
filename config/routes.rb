@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'films#index'
+  post '/', to: 'films#index'
 
    #navigations for static pages
    get 'about', to: 'films#about'
@@ -8,9 +9,8 @@ Rails.application.routes.draw do
    get 'admin_index', to: 'admins#index'
 
    #search routes
-   get 'latest', to: 'latests#search'
-
-  post '/', to: 'films#index'
+   post '/search', to: 'latests#search'
+   get '/search', to: 'latests#index'
  
   #navigation for paginated music page
   post '/musics_index', to: 'musics#index'
