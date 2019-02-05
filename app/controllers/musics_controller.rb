@@ -43,7 +43,9 @@ class MusicsController < ApplicationController
 	end
 
 	def show
-		@music = Music.find(params[:id])
+		id = params[:id]
+		@music = Music.find(id)
+		@media = "musics/#{id}"
 	end
 
 	def download

@@ -44,7 +44,9 @@ class VideosController < ApplicationController
 	end
 
 	def show
-		@video = Video.find(params[:id])
+		id = params[:id]
+		@video = Video.find(id)
+		@media = "videos/#{id}"
 	end
 
 	def download

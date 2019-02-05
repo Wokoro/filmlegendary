@@ -1,0 +1,7 @@
+.fb_iframe_widget {
+	top: -5px;
+}
+#share_holder{
+    display: flex;
+    justify-content: space-evenly;
+}

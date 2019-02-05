@@ -5,7 +5,7 @@
 
 <div class="section no-pad no-gutters row">
     <div class="col-12">
-    <span class="type rm_position">[ NEWS ]</span>
+        <span class="type rm_position">[ NEWS ]</span>
         <span class="tag"><%= @news.title %></span>
     </div>
     <hr/>
@@ -18,3 +18,4 @@
         <span class="release lf-algn">released : <%= @news.released %></span>
     </div>
 </div>
+<%= render("layouts/social_media_share", locals:{media: @media})%>

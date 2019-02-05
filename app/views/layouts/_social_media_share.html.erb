@@ -1,0 +1,26 @@
+<% content_for :social_media_meta do %>
+    <meta property="og:url" content= '<%= "https://filmlegendary.herokuapp.com/#{@media}"%>' />
+    <meta property="og:type" content= "website" />
+    <meta property="og:title" content= "Film Legendary" />
+    <meta property="og:description" content= "Get your best intertainment here" />
+    <meta property="og:image" content= "https://image.shutterstock.com/image-vector/music-note-design-element-doodle-450w-616470641.jpg" />
+<% end %>
+
+<div id="share_holder">
+    <!-- twitter -->
+    <a class ="twitter-share-button temp_show" href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-url='<%= "https://filmlegendary.herokuapp.com/#{@media}"%>' data-size="small" data-show-count="false"></a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- facebook -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if(d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'facebook-jssdk')
+    </script>
+    <div class ="fb-share-button" data-mobile-iframe = "true" data-layout="button"></div>
+</div>
