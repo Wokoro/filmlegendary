@@ -21,15 +21,9 @@
 	 margin-bottom: 0px;
  }
  a{
-    color : rgb(163, 162, 162);
+    color : rgb(0, 0, 0);
  }
- hr {
-     width: 100%;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border: 0;
-	border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
+
  header{
     margin-bottom: 15px;
  }
@@ -41,16 +35,15 @@
 	width: 100%;
  }
  footer {
-	height: 130px;
 	display: flex;
-	color: white;
+	color: black;
 	font-size: small;
 	align-items: center;
 	flex-direction: column;
-	justify-content: space-around;
+	height: 100px;
+	background-color: gray;
 }
  body{
-	background-color: black;
 	padding-right: 10px;
 	padding-left : 10px;
  }

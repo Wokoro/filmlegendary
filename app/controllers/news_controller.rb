@@ -1,30 +1,20 @@
 class NewsController < ApplicationController
     def index
-        @news = News.all.order(created_at: :desc)
-     
-        query_offset = ''
-		@per_page =  params[:content] ? params[:content].to_i : 4
-		@current_page = params[:page] ? params[:page].to_i : 1
-		tot_content_disp = @per_page * @current_page
-		tot_content = @news.length
-		if( @per_page * @current_page == @per_page)
-			query_offset = 0
-		else
-			query_offset = tot_content_disp - @per_page
-		end
-		
-		@tot_nav_links = nil
-
-        @contents = @news.limit(@per_page).offset(query_offset)
-        
-        @contents.each do |news|
-            news.read_file(news.news_file_url)
-        end
-		
-		if(tot_content % @per_page== 0)
-			@tot_nav_links = tot_content / @per_page
-		else
-			@tot_nav_links = (tot_content / @per_page)+1
+        respond_to do |format|
+			format.json do 
+				@query_offset = params[:offset].to_i
+				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(6).offset(@query_offset)
+				@query_offset += @contents.length
+				@contents_json = Hash.new
+				@contents_json["query"] = @query_offset
+				@contents_json["contents"] = @contents.as_json
+				render json: @contents_json
+			end
+			format.html do
+				@query_offset=0
+				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(6)
+				@query_offset += @contents.length
+			end
 		end
     end
 

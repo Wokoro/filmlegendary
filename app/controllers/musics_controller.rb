@@ -1,26 +1,20 @@
 class MusicsController < ApplicationController
 	def index
-		@musics = Music.all.order(created_at: :desc)
-
-		query_offset = ''
-		@per_page =  params[:content] ? params[:content].to_i : 4
-		@current_page = params[:page] ? params[:page].to_i : 1
-		tot_content_disp = @per_page * @current_page
-		tot_content = @musics.length
-		if( @per_page * @current_page == @per_page)
-			query_offset = 0
-		else
-			query_offset = tot_content_disp - @per_page
-		end
-		
-		@tot_nav_links = nil
-
-		@contents = @musics.limit(@per_page).offset(query_offset)
-		
-		if(tot_content % @per_page== 0)
-			@tot_nav_links = tot_content / @per_page
-		else
-			@tot_nav_links = (tot_content / @per_page)+1
+		respond_to do |format|
+			format.json do 
+				@query_offset = params[:offset].to_i
+				@contents = Music.select(:media_id, :media_poster, :artist_name, :title).order(created_at: :desc).limit(6).offset(@query_offset)
+				@query_offset += @contents.length
+				@contents_json = Hash.new
+				@contents_json["query"] = @query_offset
+				@contents_json["contents"] = @contents.as_json
+				render json: @contents_json
+			end
+			format.html do
+				@query_offset=0;
+				@contents = Music.select(:id, :poster_path, :artist_name, :title).order(created_at: :desc).limit(6)
+				@query_offset += @contents.length
+			end
 		end
 	end
 	

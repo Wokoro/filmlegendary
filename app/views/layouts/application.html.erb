@@ -12,10 +12,10 @@
 	<body>
 		<%= content_for?(:header) ? yield(:header) : render("layouts/header") %>
 		<%= yield %>
-		<%= content_for?(:footer) ? yield(:footer) : render("layouts/footer") %>
 		<%= yield :special_css%>
-		<%= yield :pagination_js%>
+		<%= yield :content_load_js%>
 		<%= yield :submit_icon_js%>
 		<%= yield :social_media_share%>
+		<%= content_for?(:footer) ? yield(:footer) : render("layouts/footer") %>
   </body>
 </html>

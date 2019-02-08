@@ -188,15 +188,11 @@ i:hover{
 .filmz-align-center{
 	text-align: center !important;
 }
-
-.filmz-dark-bg{
-//background: rgba(0, 0, 0, 0.2);
-background-color: #000000;
-}
 .filmz-search{
 	height: 40px;
 	padding: 0px;
 	background-color: white;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .filmz-follow{
 	font-size: 1.3em;
@@ -222,7 +218,10 @@ a:hover{
 	font-size: 1.3em;
 	color: gray;
 	display: block;
-	font-family: 'Clicker Script', cursive;
+	font-family: "Open Sans", sams-serif;
+	border-bottom: 1px solid orange;
+	width: 90px;
+	margin-bottom: -1px
 }
 // Articles details section
 .music-detail {
@@ -273,13 +272,27 @@ a:hover{
 	font-weight: bold;
 	text-align: center;
 }
-.tag{
-	color: white;
-	font-size: 0.9em;
-	font-weight: bold;
-	max-width: 180px;
-	overflow-wrap: break-word;
+.more {
+	font-family: 'Lato Italic', arial, sans-serif;
+	font-style: italic;
+	font-size: 11px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.19);
+	padding: 10px 0;
+	margin: 6px 0;
+	cursor: pointer;
 	text-align: center;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	/*background: transparent url(images/player/tracklist-more.png) repeat 0 0 scroll;*/
+}
+
+.tag {
+	color: #969696;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+	font-family: 'Lato Bold', arial, sans-serif;
+	font-weight: bold;
+	font-size: 15px;
 }
 .producer{
 	font-size: 0.8em;
@@ -295,9 +308,15 @@ a:hover{
 	height: 20px;
 }
 
+.hidden{
+	display: hidden;
+}
+
 // stylings for more button
-.more{
+.more {
 	text-align: center;
+	border: 0;
+	background: none;
 }
 
 // pagination section
@@ -326,12 +345,31 @@ a:hover{
 .pag-btn:hover{
 	color: purple;
 }
-.title_holder{
+
+.info {
+	color: #727272;
+	font-family: 'Lato Italic', arial, sans-serif;
+	font-style: italic;
+	font-size: 12px;
+}
+
+.artist_name {
+	font-family: 'Lato Bold', arial, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: rgb(220, 20, 112);
+	font-weight: 700;
+}
+.title_holder {
 	display: flex;
 	justify-content: space-between;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin: 30px 0 30px 0;
 }
+
 form[name="per_page"]{
-	width:15%;
+	display: flex;
+	justify-content: center;
 }
 #content{
 	width:100%;
@@ -342,18 +380,12 @@ form[name="per_page"]{
 	max-width: 116px;
 	max-height: 64.9px;
 }
-.type {
-	position: absolute;
-	top: -10px;
-	right: 0;
-	color: blue;
-	font-size: 0.8em;
-	font-weight: bold;
-}
+
 .media_details{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 .media_content{
 	display: flex;
