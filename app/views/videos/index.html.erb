@@ -1,12 +1,21 @@
-<%= content_for :special_js do %>
-    <%= javascript_include_tag 'pagination' %>
-<% end %>
+<div class="template" hidden>
+    <a class="link" href="">
+        <div class="no-pad no-gutters media_content">
+            <div class="col-6">
+                <img class="poster" src="" alt="Mus14">
+            </div>
+            <div class="col-6 media_details">
+                <span class="tag"></span>
+            </div>
+        </div>
+    </a>
+    <hr/>
+</div>
 
 <div class="title_holder">
     <span class="title">VIDEOS</span>
 </div>
-<hr/>
-<% if @videos %>
+<div id= "content_holder">
     <% @contents.each do |video|%>
         <a href= <%= "/videos/#{video.id}" %> >
             <div class="no-pad no-gutters media_content">
@@ -20,4 +29,9 @@
         </a>
         <hr/>       
     <% end %>    
+</div>
+
+<%= form_tag '/videos', name: 'per_page', remote: true do %>
+    <%= hidden_field_tag 'offset', @query_offset %>
+    <%= submit_tag 'load more...', disabled: false, id: 'load_content', class: 'more' %>
 <% end %>

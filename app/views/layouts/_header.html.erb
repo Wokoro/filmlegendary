@@ -1,7 +1,4 @@
-<header class="filmz-dark-bg">
-	<%= content_for :submit_icon_js do %>
-		<%= javascript_include_tag 'search' %>
-	<% end %>		
+<header class="filmz-dark-bg">		
 	<!-- DIV FOR SOCIAL MEDIA ICONS
 	<div class="d-flex col-12 justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12 filmz-follow filmz-follow filmz-wt-col ">
 		<a href="#" data-toggle="tooltip" data-placement="auto" data-animate="true" title="" data-original-title="facebook"><i class="fab fa-facebook-square"></i></a>
@@ -16,7 +13,7 @@
 	<nav id="topNav">
 		<div id="topNavSec">
 			<a href="/">
-				<img id="filmz-icon_small" class="" src="/assets/icon/filmz2.png" alt="Filmz">
+				<%= image_tag("filmz2.png", id: "filmz-icon_small", alt: "filmz")%>
 			</a>
 			<ul id="myTopnav">
 				<li id="resMenu" class="icon"><a href="javascript:void(0);">&#9776;</a></li>

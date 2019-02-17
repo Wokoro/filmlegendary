@@ -6,7 +6,6 @@
             </div>
             <div class="col-6 media_details">
                 <span class="tag"></span>
-                <p class="info">By : <span class="artist_name"></span></p>
             </div>
         </div>
     </a>
@@ -35,10 +34,7 @@
     <% end %>
 </div>
 
-<%= form_tag '/', name: 'per_page', remote: true do %>
+<%= form_tag '/news', name: 'per_page', remote: true do %>
     <%= hidden_field_tag 'offset', @query_offset %>
     <%= submit_tag 'load more...', disabled: false, id: 'load_content', class: 'more' %>
-<% end %>
-<%= content_for :content_load_js do %>
-    <%= javascript_include_tag :load_contents %>
 <% end %>

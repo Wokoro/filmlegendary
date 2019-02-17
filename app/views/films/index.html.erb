@@ -1,5 +1,5 @@
 <% content_for :title do %>
-   <%= :controller%>
+   
 <% end %>
 
 <div class="title_holder">
@@ -76,10 +76,9 @@
         <% end %>
     <% end %>
 </div>
+
+
 <%= form_tag '/', name: 'per_page', remote: true do %>
     <%= hidden_field_tag 'offset', @query_offset %>
     <%= submit_tag 'load more...', disabled: false, id: 'load_content', class: 'more' %>
-<% end %>
-<%= content_for :content_load_js do %>
-    <%= javascript_include_tag :load_contents %>
 <% end %>

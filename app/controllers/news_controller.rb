@@ -3,7 +3,7 @@ class NewsController < ApplicationController
         respond_to do |format|
 			format.json do 
 				@query_offset = params[:offset].to_i
-				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(6).offset(@query_offset)
+				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(1).offset(@query_offset)
 				@query_offset += @contents.length
 				@contents_json = Hash.new
 				@contents_json["query"] = @query_offset
@@ -12,7 +12,7 @@ class NewsController < ApplicationController
 			end
 			format.html do
 				@query_offset=0
-				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(6)
+				@contents = News.select(:id, :image_path, :title).order(created_at: :desc).limit(1)
 				@query_offset += @contents.length
 			end
 		end

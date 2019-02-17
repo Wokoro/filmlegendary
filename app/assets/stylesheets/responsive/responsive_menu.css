@@ -1,6 +1,10 @@
 #navHolder, #myTopnav{
     display: none;
 }
+#myTopnav{
+	display: none;
+	align-self: baseline;
+}
 #resMenu{
     padding:0px;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield :title %></title>
+    <title><%= "#{controller_name} | #{action_name}" %></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= yield(:social_media_meta)%>
 		<%= csrf_meta_tags %>
@@ -9,13 +9,10 @@
   	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-	<body>
+	<%= content_tag :body, data: {action: action_name, controller: controller_name} do %>
 		<%= content_for?(:header) ? yield(:header) : render("layouts/header") %>
 		<%= yield %>
 		<%= yield :special_css%>
-		<%= yield :content_load_js%>
-		<%= yield :submit_icon_js%>
-		<%= yield :social_media_share%>
 		<%= content_for?(:footer) ? yield(:footer) : render("layouts/footer") %>
-  </body>
+  <%end%>
 </html>

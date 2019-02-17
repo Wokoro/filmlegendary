@@ -3,7 +3,7 @@ class MusicsController < ApplicationController
 		respond_to do |format|
 			format.json do 
 				@query_offset = params[:offset].to_i
-				@contents = Music.select(:media_id, :media_poster, :artist_name, :title).order(created_at: :desc).limit(6).offset(@query_offset)
+				@contents = Music.select(:media_id, :poster_path, :artist_name, :title).order(created_at: :desc).limit(1).offset(@query_offset)
 				@query_offset += @contents.length
 				@contents_json = Hash.new
 				@contents_json["query"] = @query_offset

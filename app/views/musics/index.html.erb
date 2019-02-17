@@ -1,3 +1,7 @@
+<% content_for :title do %>
+    FilmLegendary | Musics
+ <% end %>
+
 <div class="template" hidden>
     <a class="link" href="">
         <div class="no-pad no-gutters media_content">
@@ -16,28 +20,25 @@
 <div class="title_holder">
     <span class="title">MUSICS</span>
 </div>
-<hr/>
 
 <div id= "content_holder">
-<% @contents.each do |music|%>
-    <a href= <%= "/musics/#{music.id}" %> >
-        <div class="no-pad no-gutters media_content">
-            <div class="col-6">
-                <img class="poster" src=<%=music.poster_path%> alt="Mus14">
+    <% @contents.each do |music|%>
+        <a href= <%= "/musics/#{music.id}" %> >
+            <div class="no-pad no-gutters media_content">
+                <div class="col-6">
+                    <img class="poster" src=<%=music.poster_path%> alt="Mus14">
+                </div>
+                <div class="col-6 media_details column-display">
+                    <span class="tag"><%=music.title%></span><br>
+                    <p class="info">By : <span class="artist_name"><%=music.artist_name%></span></p> 
+                </div>
             </div>
-            <div class="col-6 media_details column-display">
-                <span class="tag"><%=music.title%></span><br>
-                <p class="info">By : <span class="artist_name"><%=music.artist_name%></span></p> 
-            </div>
-        </div>
-    </a>
-    <hr/>
-<% end %>
+        </a>
+        <hr/>
+    <% end %>
 </div>
-<%= form_tag '/', name: 'per_page', remote: true do %>
+
+<%= form_tag '/musics', name: 'per_page', remote: true do %>
     <%= hidden_field_tag 'offset', @query_offset %>
     <%= submit_tag 'load more...', disabled: false, id: 'load_content', class: 'more' %>
-<% end %>
-<%= content_for :content_load_js do %>
-    <%= javascript_include_tag :load_contents %>
 <% end %>

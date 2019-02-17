@@ -24,8 +24,7 @@ class FilmsController < ApplicationController
 				@contents = Latest.select(:media_id, :media_type, :media_poster, :artist_name, :title).order(created_at: :desc).limit(6)
 				@query_offset += @contents.length
 			end
-		end
-					
+		end			
 	end
 
 	def about

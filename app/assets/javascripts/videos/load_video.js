@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', ()=>{
-
+    if(($('body').data('action')==='index') && ($('body').data('controller')==='videos')){
     let xhttp = new XMLHttpRequest();
     let load_content = document.getElementById("load_content")
     let content_load_form = document.forms['per_page']
@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', ()=>{
 
     load_content.addEventListener('click', (event)=>{
         event.preventDefault();
-        xhttp.open("GET", `/?offset=${queryOffset.value}` , true);
+        xhttp.open("GET", `videos/?offset=${queryOffset.value}` , true);
         xhttp.send();
     })
 
@@ -34,12 +34,10 @@ $(document).on('turbolinks:load', ()=>{
       let a = holder.querySelector('.link')
       let poster = holder.querySelector('.poster')
       let title = holder.querySelector('.tag')
-      let artist_name = holder.querySelector('.artist_name')
 
-      a.href = `/${obj.media_type}/${obj.media_id}`
-      poster.src = `${obj.media_poster}`
+      a.href = `/videos/${obj.id}`
+      poster.src = `${obj.poster_path}`
       title.textContent = `${obj.title}`
-      artist_name.textContent = `${obj.artist_name}`
 
       holder.removeAttribute('hidden')
       return holder
@@ -48,4 +46,5 @@ $(document).on('turbolinks:load', ()=>{
   let appendToDOM = (holder, node)=>{
       holder.append(node)
   }
+}
 })

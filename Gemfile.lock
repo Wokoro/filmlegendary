@@ -190,7 +190,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   puma (~> 3.7)
-  rails (~> 5.1.4)
+  rails (~> 5.1)
   sass-rails (~> 5.0)
   selenium-webdriver
   sqlite3
