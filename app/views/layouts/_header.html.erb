@@ -32,7 +32,7 @@
 	<!-- DIV FOR SEARCH BOX -->
 	
 	<div class=" filmz-search col-12 col-lg-3 col-xl-2 filmz-search">
-		<%= form_for :search, url: 'search', html:{ id: 'search-form', method: 'post'} do |form| %>
+		<%= form_for :search, url: '/search', html:{ id: 'search-form', method: 'post'} do |form| %>
 			<%= form.text_field :query, id: 'search-field-sm', placeholder: "Start searching", class: "search-field" %>
 			<i class="search-btn fa fa-search" id="submit-icon" title="search"></i>
 		<%end%>

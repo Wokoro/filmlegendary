@@ -1,20 +1,8 @@
-<% content_for :title do %>
-   
-<% end %>
-
 <div class="title_holder">
     <span class="title">LATESTS</span>
-    <!--<%= form_tag '/', name:'per_page', method: 'POST' do%>
-        <% if @per_page%>
-            <%= number_field_tag 'content', @per_page, in: 1..6 %>
-        <%else%>
-            <%= number_field_tag 'content', 4, in: 1..6 %>
-        <%end%>
-    <% end %>
-    -->
 </div>
 
-<div class="template" hidden>
+<div class="template changing" hidden>
     <a class="link" href="">
         <div class="no-pad no-gutters media_content">
             <div class="col-6">
@@ -29,12 +17,11 @@
     <hr/>
 </div>
 
-
 <div id= "content_holder">
     <% if @contents %>
         <% @contents.each do |content|%>
             <% if content.media_type.downcase=="music"%>
-            <div>
+            <div class="changing">
                 <a href= <%= "/musics/#{content.media_id}" %> >
                     <div class="no-pad no-gutters media_content">
                         <div class="col-6">
@@ -76,7 +63,6 @@
         <% end %>
     <% end %>
 </div>
-
 
 <%= form_tag '/', name: 'per_page', remote: true do %>
     <%= hidden_field_tag 'offset', @query_offset %>

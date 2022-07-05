@@ -1,0 +1,9 @@
+@keyframes colorchange {
+  0% {opacity : 0.9 }
+  100% { opacity: 0.1 }
+}
+
+
+.changing {
+  animation: colorchange 3s;
+}

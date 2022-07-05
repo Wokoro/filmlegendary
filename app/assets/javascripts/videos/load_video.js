@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', ()=>{
 
     load_content.addEventListener('click', (event)=>{
         event.preventDefault();
-        xhttp.open("GET", `videos/?offset=${queryOffset.value}` , true);
+        xhttp.open("GET", `videos/?offset=${queryOffset.value}` ,true);
         xhttp.send();
     })
 
@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', ()=>{
   }
 
   let appendToDOM = (holder, node)=>{
-      holder.append(node)
+      holder.append(node);
   }
 }
 })
